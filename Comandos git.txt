@@ -1,0 +1,22 @@
+COMANDOS GIT:
+
++Clonar repositorio de GitHub:
+	git clone https:\\github...
+
++Ver estado de carpeta:
+	git status
+
++Agregar archivo nuevo al proyecto:
+	git add archivo.txt
+
++Ver diferencias entre archivos:
+	git diff
+
++Añadir todos los archivos:
+	git add .
+
++Comentar:
+	git commit -m "Comentario de añadido"
+
++Subir los archivos al GitHub:
+	git push (Siempre en cuando ya tengamos sesion iniciada y hayamos hecho previamente un git commit)
