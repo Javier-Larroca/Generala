@@ -8,7 +8,7 @@ Declaración de funciones
 void subMenuJugar(); //Muestra menú para jugador 1.
 void registrarJugador(char n[]); //Registra jugador que va a jugar
 void jugarDemostracion(char n[]); //Juega en modo de "demostracion", recibe el nombre del jugador y aca se juega todo el turno.Se inician vectores y  llama a las funciones tirarDados, mostrarDados y cambiarDados
-int calcularPuntos();// calcula los puntos que le corresponden
+//int calcularPuntos();// calcula los puntos que le corresponden
 void calcularRonda(char n[], int r, int p);////Recibe nombre del jugador, el numero de ronda, y el puntaje. Lo muestra siempre que se termina un turno
 void ingresarDados();// Ingresar dados para DEMOSTRACIÓN.
 void cambiarDadosManualmente();// Cambia los dados para DEMOSTRACIÓN
@@ -17,7 +17,9 @@ void cambiarDadosManualmente();// Cambia los dados para DEMOSTRACIÓN
 /**
 Funciones Agus
 */
-
+int copiarVector(int v[], int v2[]);
+void ordenarDados(int v[]);//Ordena el vector de "dados" de menor a mayor.
+int calculoDePuntaje(int v[]); //Calcula que tipo de puntaje corresponde por jugada.
 int validarValorDado(int num); //Valida que un valor ingresado manualmente este entre 1 y 6.
 void tirarDados(int v[]); //Carga en un vector de 5 posiciones(dados) valores al azar del 1 al 6
 void tirarDadosManual(int v[]); //Carga manualmente un vector de 5 posiciones.

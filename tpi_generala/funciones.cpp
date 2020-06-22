@@ -66,7 +66,7 @@ void subMenuJugar(){
 }
 
 //Registra nombre de jugador
-    void registrarJugador(char n[]){
+void registrarJugador(char n[]){
     cout <<"A Jugar!" << endl;
     cout <<"-----------------------------"<< endl;
     cout<<"Ingrese nombre de jugador para registrarse: ";
@@ -85,7 +85,7 @@ void tirarDados(int v[]){
 
 //Muestra los dados.
 void mostrarDados(int v[]){
-    int i;
+
     cout<<endl<<"   1            2            3            4            5   ";
     cout<<endl<<"-------      -------      -------      -------      -------";
     cout<<endl<<"|     |      |     |      |     |      |     |      |     |";
@@ -94,11 +94,58 @@ void mostrarDados(int v[]){
     cout<<endl<<"-------      -------      -------      -------      -------";
 }
 
-// Cambia los dados. Cambia los dados ALEATORIAMENTE
+// Cambiar los dados. Cambia los dados ALEATORIAMENTE
 void cambiarUnDado(int v[], int pos){
     srand(time(NULL));
     v[pos-1]=(rand()%6)+1;
 }
+
+//Ordena el vector de dados de menor a mayor.
+void ordenarDados(int v[]){
+    int i,j, posmin, aux;
+    for(i=0;i<5;i++){
+        posmin=i;
+        for(j=i+1;j<5;j++){
+            if(v[j]<v[posmin]) posmin=j;
+        }
+        aux=v[i];
+        v[i]=v[posmin];
+        v[posmin]=aux;
+    }
+}
+
+//Copia en otro vector el contenido del vector 1
+int copiarVector(int v[], int v2[]){
+    int i;
+    for(i=0;i<5;i++){
+        v2[i]=v[i];
+    }
+}
+
+
+
+//Calcula que tipo de puntaje corresponde por jugada.
+int calculoDePuntaje(int v[]){
+    int vCopia[5], puntos;
+
+    copiarVector(v[], vCopia[]);
+    //ordenarDados(v[]);
+
+    if (v[0]==v[1] && v[1]==v[2] && v[2]==v[3] && v[3]==v[4]){ //GENERALA
+        puntos=50;
+    }
+    else{
+        if ((v[0]==v[1] && v[1]==v[2] && v[2]==v[3]) || (v[1]==v[2] && v[2]==v[3] && v[3]==v[4])){ //POKER
+            puntos=40;
+        }
+        else{
+            puntos=0;
+        }
+    }
+
+    return puntos;
+}
+
 
 //Recibe nombre del jugador, el numero de ronda, y el puntaje. Lo muestra siempre que se termina un turno.
 void calcularRonda(char n[], int r, int p){
@@ -135,7 +182,8 @@ void jugarDemostracion(char n[]){
             modificarDadosManual(vDado1, cantDadosCambiados);
         }
         ronda++;
-        puntos+=20;
+        puntos+=calculoDePuntaje(vDado1);
+        cout<<"PUNTOS: "<<puntos;
     }
 }
 
