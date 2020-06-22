@@ -1,5 +1,7 @@
 #include <iostream>
+#include <stdlib.h>
 #include <cstdlib>
+#include <conio.h>
 #include <cstdio>
 #include <ctime>
 
@@ -9,25 +11,41 @@ using namespace std;
 
 int main()
 {
-    int vec_dado1[5], cant_dados, nro_dado;
-    char sn;
+    setlocale(LC_ALL, "Spanish");
+    char opc;
+    char nombre[50];
 
-    tirarDados(vec_dado1);
-    cout<<endl<<"Dados de jugador 1: "<<endl;
-    mostrarDados(vec_dado1);
-    cout<<endl<<"¿Desea volver a tirar algun dado? S/N ";
-    cin>>sn;
-    if (sn=='s'|| sn=='S'){
-        cout<<"¿Cuantos dados quiere volver a tirar? ";
-        cin>>cant_dados;
-        for (int x=0; x<cant_dados; x++){
-            cout<<"¿Que nro de dado desea tirar nuevamente? ";
-            cin>>nro_dado;
-            cambiarUnDado(vec_dado1, nro_dado);
-        }
-        mostrarDados(vec_dado1);
+    cout << "Bienvenido a Generala"<< endl;
+    cout << "---------------------"<< endl;
+    cout <<endl;
+
+    while(true){
+    cout <<"1. Jugar"<< endl;
+    cout <<"2. Historial"<< endl;
+    cout <<"3. Reglas"<< endl;
+    cout <<"4. Salir"<< endl;
+    cout <<endl;
+    cout <<"Seleccione una opción: ";
+    cin >> opc;
+    system("cls");
+
+    switch (opc){
+    case '1':subMenuJugar();
+        break;
+    case '2':cout<<"Sin desarrollar";
+        break;
+    case '3':cout<<"Sin desarrollar";
+        break;
+    case '4':cout<<"Gracias por jugar Generala, te esperamos pronto!"<< endl;
+        return 0;
+        break;
+    default:system("cls");
+            cout << "Bienvenido a Generala"<< endl;
+            cout << "---------------------"<< endl;
+            cout <<"Opción ingresada no es válida"<< endl;
+            cout<< endl;
+        break;
     }
-
-
 }
 
+}
