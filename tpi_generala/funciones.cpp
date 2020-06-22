@@ -128,18 +128,34 @@ int copiarVector(int v[], int v2[]){
 int calculoDePuntaje(int v[]){
     int vCopia[5], puntos;
 
-    copiarVector(v[], vCopia[]);
-    //ordenarDados(v[]);
+    copiarVector(v, vCopia);
+    ordenarDados(vCopia);
 
-    if (v[0]==v[1] && v[1]==v[2] && v[2]==v[3] && v[3]==v[4]){ //GENERALA
+    if (vCopia[0]==vCopia[1] && vCopia[1]==vCopia[2] && vCopia[2]==vCopia[3] && vCopia[3]==vCopia[4]){ //GENERALA
         puntos=50;
+        //cout<<endl<<"GENERALA"<<endl;
     }
     else{
-        if ((v[0]==v[1] && v[1]==v[2] && v[2]==v[3]) || (v[1]==v[2] && v[2]==v[3] && v[3]==v[4])){ //POKER
+        if ((vCopia[0]==vCopia[1] && vCopia[1]==vCopia[2] && vCopia[2]==vCopia[3]) || (vCopia[1]==vCopia[2] && vCopia[2]==vCopia[3] && vCopia[3]==vCopia[4])){ //POKER
             puntos=40;
+            //cout<<endl<<"POKER"<<endl;
         }
         else{
-            puntos=0;
+            if (((vCopia[0]==vCopia[1] && vCopia[1]==vCopia[2]) && (vCopia[3]==vCopia[4])) || ((vCopia[2]==vCopia[3] && vCopia[3]==vCopia[4]) && (vCopia[0]==vCopia[1]))){ //FULL
+                puntos=30;
+                //cout<<endl<<"FULL"<<endl;
+            }
+            else{
+                if (v[0]<v[1] && v[1]<v[2] && v[2]<v[3] && v[3]<v[4]){ //ESCALERA
+                    puntos=25;
+                    //cout<<endl<<"ESCALERA"<<endl;
+                }
+                else{
+                    if (v[0]==6){
+                        //Aca en realidad ya me nuble y no se como seguir...
+                    }
+                }
+            }
         }
     }
 
