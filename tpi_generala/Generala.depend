@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1592847813 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	"funciones.h"
+
+1592851050 c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala\funciones.h
+
+1592845646 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<cstdio>
+	<ctime>
+	"funciones.h"
+

@@ -20,6 +20,7 @@ int main()
     cout <<endl;
 
     while(true){
+    //cout << endl;
     cout <<"1. Jugar"<< endl;
     cout <<"2. Historial"<< endl;
     cout <<"3. Reglas"<< endl;
@@ -32,9 +33,9 @@ int main()
     switch (opc){
     case '1':subMenuJugar();
         break;
-    case '2':cout<<"Sin desarrollar";
+    case '2':cout<<"Sin desarrollar"<<endl;
         break;
-    case '3':cout<<"Sin desarrollar";
+    case '3':cout<<"Sin desarrollar"<<endl;
         break;
     case '4':cout<<"Gracias por jugar Generala, te esperamos pronto!"<< endl;
         return 0;
