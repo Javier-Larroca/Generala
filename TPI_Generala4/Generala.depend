@@ -56,3 +56,22 @@
 	<ctime>
 	"funciones.h"
 
+1592942777 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<cstdio>
+	<ctime>
+	"funciones.h"
+
+1592953162 c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\funciones.h
+
+1592953206 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	"funciones.h"
+

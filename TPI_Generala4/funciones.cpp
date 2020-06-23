@@ -33,8 +33,13 @@ void subMenuJugar(){
                  cout <<endl;
                      switch(mjuego){
                      case '1':{
-                         cout<<"Sin desarrollar"<<endl;
-
+                         //cout<<"Sin desarrollar"<<endl;
+                        system("cls");
+                        registrarJugador(nombre);
+                        system("cls");
+                        cout<<"Empieza el juego!"<< endl;
+                        cout <<"Bienvenido: "<< nombre<<endl;
+                        jugarSolo(nombre);
                      }
                         break;
                      case '2':cout<<"Sin desarrollar"<<endl;
@@ -100,6 +105,16 @@ void cambiarUnDado(int v[], int pos){
     v[pos-1]=(rand()%6)+1;
 }
 
+//Se ingresa la cantidad de dados que se desean cambiar. Pide al usuario el nro de dado que quiere cambiar y lo cambia aleatoriamente.
+void modificarDados(int v[], int cant){
+    int nroDado;
+    for (int x=0; x<cant; x++){
+        cout<<"Ingrese el nro de dado a cambiar: ";
+        cin>>nroDado;
+        cambiarUnDado(v, nroDado);
+    }
+}
+
 //Ordena el vector de dados de menor a mayor.
 void ordenarDados(int v[]){
     int i,j, posmin, aux;
@@ -122,15 +137,23 @@ int copiarVector(int v[], int v2[]){
     }
 }
 
-
+//Devuelve la cantidad de dados con el valor que se envia como parametro
+int contarDadosRepetidos(int v[], int numero){
+    int i, cant=0;
+    for(i=0;i<5;i++){
+        if(v[i]==numero) cant++;
+        }
+    return cant;
+}
 
 //Calcula que tipo de puntaje corresponde por jugada.
 int calculoDePuntaje(int v[]){
     int vCopia[5], puntos;
-    bool bMayor=false;// Este bool lo uso en el for para buscar las combinaciones basicas.
-    int valorRepetido;// Valor para las combinaciones basicas
-    int puntosAprox;//Valor para calcular los puntos de cada numero
-    int puntoMayor;// Valor para comparar el punto mayor temporal
+    //bool bMayor=false;// Este bool lo uso en el for para buscar las combinaciones basicas.
+    //int valorRepetido;// Valor para las combinaciones basicas
+    //int puntosAprox;//Valor para calcular los puntos de cada numero
+    //int puntoMayor;// Valor para comparar el punto mayor temporal
+    int uno, dos, tres, cuatro, cinco, seis; //Vamos a ver si esto funciona
     copiarVector(v, vCopia);
     ordenarDados(vCopia);
 
@@ -153,32 +176,114 @@ int calculoDePuntaje(int v[]){
                     puntos=25;
                     cout<<endl<<"Se obtuvo: ESCALERA"<<endl;
                 }
-                else{ //Aca arme un for para buscar las combinaciones basicas. Lo explico punto a punto.
+                else{
+                /*
+                //Aca arme un for para buscar las combinaciones basicas. Lo explico punto a punto.
                 for( int r=0; r<6; r++){ // Aca entrar en un FOR para buscar los numeros del 1 al 6.
                     valorRepetido=r+1; // Empezamos por el 1
                     int vecesRepite=0; // Para cada numero, repite 1 sola vez
                     for (int x=0; x<5; x++){ // Cada numero, recorre 1 vez el vector copia de los dados.
-                    if(vCopia[x]==valorRepetido){ //Compara la posición del vector con el numero.
-                    vecesRepite++; // Si repite aumenta en 1. Con aparecer 1 vez suma.
-                    puntosAprox=vecesRepite*valorRepetido; //Calculo de los puntos aproximados
-                }
-                } if (bMayor==false){ // Bandera para comparar con los numeros que le siguen
-                puntoMayor=puntosAprox;
-                bMayor=true;
-                }else{
-                if(puntosAprox>puntoMayor){
-                    puntoMayor=puntosAprox;
-                }
-                }
+                        if(vCopia[x]==valorRepetido){ //Compara la posición del vector con el numero.
+                            vecesRepite++; // Si repite aumenta en 1. Con aparecer 1 vez suma.
+                            puntosAprox=vecesRepite*valorRepetido; //Calculo de los puntos aproximados
+                        }
+                    }
+                    if (bMayor==false){ // Bandera para comparar con los numeros que le siguen
+                        puntoMayor=puntosAprox;
+                        bMayor=true;
+                    }
+                    else{
+                        if(puntosAprox>puntoMayor){
+                            puntoMayor=puntosAprox;
+                        }
+                    }
                 }
                 puntos=puntoMayor;// Si no lo dejaba aca, me traia numero basura.
+                **/
+                    //uno=dos=tres=cuatro=cinco=seis=0;
+                    uno =contarDadosRepetidos(v, 1)*1;
+                    dos =contarDadosRepetidos(v, 2)*2;
+                    tres =contarDadosRepetidos(v, 3)*3;
+                    cuatro =contarDadosRepetidos(v, 4)*4;
+                    cinco =contarDadosRepetidos(v, 5)*5;
+                    seis =contarDadosRepetidos(v, 6)*6;
+                    if (seis>uno && seis>dos && seis>tres && seis>cuatro && seis>cinco){
+                        puntos=seis;
+                    }
+                    else{
+                        if (cinco>uno && cinco>dos && cinco>tres && cinco>cuatro){
+                            puntos=cinco;
+                        }
+                        else{
+                            if (cuatro>uno && cuatro>dos && cuatro>tres){
+                                puntos=cuatro;
+                            }
+                            else{
+                                if (tres>uno && tres>dos){
+                                    puntos=tres;
+                                }
+                                else{
+                                    if(dos>uno){
+                                        puntos=dos;
+                                    }
+                                    else{
+                                        puntos=uno;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    cout<<endl;
                 }
-                }
-        }
             }
+        }
+    }
     return puntos;
 }
 
+// Juega GENERALA para un solo jugador.
+void jugarSolo(char n[]){
+    int vDado1[5], cantidadDados, numeroDado,ronda, puntos, x, cantDadosCambiados, lanzamiento, puntosLanzamiento;
+    char sn;
+
+    ronda=1;
+    puntos=0;
+    for (x=0; x<10;x++){
+        bool primerIngreso=false;//Primer ingreso de dados
+        calcularRonda(n, ronda, puntos);
+        system("cls");
+        for (lanzamiento=3; lanzamiento>0;lanzamiento--){//Entra en un FOR para empezar tomar en cuenta los lanzamientos. 3 permitidos max
+         informacionRonda(n,ronda,puntos,lanzamiento);
+        if (primerIngreso==false){
+            tirarDados(vDado1);
+            primerIngreso=true;
+        }
+        cout <<endl<<"Dados de "<<n<<":"<<endl;
+        mostrarDados(vDado1);
+        cout<<endl<<"¿Desde volver a tirar algun dado? S/N: ";
+        cin>> sn;
+        if (sn=='s' || sn=='S'){
+            cout<<"¿Cuantos dados desea volver a tirar?: ";
+            cin>>cantDadosCambiados;
+            modificarDados(vDado1, cantDadosCambiados);
+            system("cls");
+        }
+        else{
+            if(sn=='n' || sn=='N'){
+                lanzamiento=0;
+            }
+        }
+        }
+        puntosLanzamiento=calculoDePuntaje(vDado1);
+        if (puntosLanzamiento==50 && ronda==1){
+            cout<<endl<<"¡¡¡ GANASTE LOCURA !!!"<<endl;
+        }
+        puntos+=puntosLanzamiento;
+        ronda++;
+        cout<<"PUNTOS: "<<puntos<<endl;
+        system("pause");
+    }
+}
 
 //Recibe nombre del jugador, el numero de ronda, y el puntaje. Lo muestra siempre que se termina un turno.
 void calcularRonda(char n[], int r, int p){
@@ -196,7 +301,7 @@ void calcularRonda(char n[], int r, int p){
 
 // Juega GENERALA para DEMOSTRACION. VER SI SE PUEDE ACORTAR
 void jugarDemostracion(char n[]){
-    int vDado1[5], cantidadDados, numeroDado,ronda, puntos, x, cantDadosCambiados, lanzamiento;
+    int vDado1[5], cantidadDados, numeroDado,ronda, puntos, x, cantDadosCambiados, lanzamiento, puntosLanzamiento;
     char sn;
     ronda=1;
     puntos=0;
@@ -219,12 +324,19 @@ void jugarDemostracion(char n[]){
             cin>>cantDadosCambiados;
             modificarDadosManual(vDado1, cantDadosCambiados);
             system("cls");
-        }else if(sn=='n' || sn=='N'){
-            lanzamiento=0;
+        }
+        else{
+            if(sn=='n' || sn=='N'){
+                lanzamiento=0;
+            }
         }
         }
+        puntosLanzamiento=calculoDePuntaje(vDado1);
+        if (puntosLanzamiento==50 && ronda==1){
+            cout<<endl<<"¡¡¡ GANASTE LOCURA !!!"<<endl;
+        }
+        puntos+=puntosLanzamiento;
         ronda++;
-        puntos+=calculoDePuntaje(vDado1);
         cout<<"PUNTOS: "<<puntos<<endl;
         system("pause");
     }

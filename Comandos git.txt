@@ -20,3 +20,6 @@ COMANDOS GIT:
 
 +Subir los archivos al GitHub:
 	git push (Siempre en cuando ya tengamos sesion iniciada y hayamos hecho previamente un git commit)
+
++Actualizar tu carpeta (Descarga los cambios que haya hecho la otra persona):
+	git pull 

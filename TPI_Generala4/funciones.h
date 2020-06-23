@@ -17,7 +17,10 @@ void informacionRonda(char n[], int r, int p, int l);//Encabezado para cada lanz
 /**
 Funciones Agus
 */
-int copiarVector(int v[], int v2[]);
+
+void jugarSolo(char n[]);
+int contarDadosRepetidos(int v[], int numero); //Cuenta cuantos dados hay con el valor que se envia como parametro
+int copiarVector(int v[], int v2[]); //Copia el contenido de un vector de dados en otro vector (Ambos deben ser de 5 posiciones)
 void ordenarDados(int v[]);//Ordena el vector de "dados" de menor a mayor.
 int calculoDePuntaje(int v[]); //Calcula que tipo de puntaje corresponde por jugada.
 int validarValorDado(int num); //Valida que un valor ingresado manualmente este entre 1 y 6.
@@ -26,6 +29,7 @@ void tirarDadosManual(int v[]); //Carga manualmente un vector de 5 posiciones.
 void mostrarDados(int v[]); //Muestra el vector(dados) de 5 posiciones
 void cambiarUnDado(int v[], int pos); //Cambia el valor de un dado en especifico (Se ingresa directamente el nro de dado cargado por el usuario)
 void modificarDadosManual(int v[], int cant); //Pide al usuario los dados y porque valores dese cambiarlos.
+void modificarDados(int v[], int cant); //Pide al usuario que dados desea cambiar.
 void cambiarUnDadoManual(int v[], int pos, int valor); //Cambiar el valor de un dado es especifico indicado por el usuario
 
 #endif // FUNCIONES_H_INCLUDED
