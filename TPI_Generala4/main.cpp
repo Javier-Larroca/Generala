@@ -4,6 +4,7 @@
 #include <conio.h>
 #include <cstdio>
 #include <ctime>
+#include <string.h>
 
 using namespace std;
 

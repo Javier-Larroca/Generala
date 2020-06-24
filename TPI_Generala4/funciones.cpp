@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <ctime>
+#include <string.h>
 
 using namespace std;
 
@@ -75,7 +76,7 @@ void registrarJugador(char n[]){
     cout <<"A Jugar!" << endl;
     cout <<"-----------------------------"<< endl;
     cout<<"Ingrese nombre de jugador para registrarse: ";
-    cin >> n;
+    cin>>n;
 }
 
 //Tira los dados ALEATORIAMENTE
@@ -243,36 +244,36 @@ int calculoDePuntaje(int v[]){
 
 // Juega GENERALA para un solo jugador.
 void jugarSolo(char n[]){
-    int vDado1[5], cantidadDados, numeroDado,ronda, puntos, x, cantDadosCambiados, lanzamiento, puntosLanzamiento;
+    int vDado1[5], cantidadDados,ronda, puntos, x, cantDadosCambiados, lanzamiento, puntosLanzamiento;
     char sn;
 
     ronda=1;
     puntos=0;
-    for (x=0; x<10;x++){
+    for (x=0; x<10 ;x++){
         bool primerIngreso=false;//Primer ingreso de dados
         calcularRonda(n, ronda, puntos);
         system("cls");
         for (lanzamiento=3; lanzamiento>0;lanzamiento--){//Entra en un FOR para empezar tomar en cuenta los lanzamientos. 3 permitidos max
-         informacionRonda(n,ronda,puntos,lanzamiento);
-        if (primerIngreso==false){
-            tirarDados(vDado1);
-            primerIngreso=true;
-        }
-        cout <<endl<<"Dados de "<<n<<":"<<endl;
-        mostrarDados(vDado1);
-        cout<<endl<<"¿Desde volver a tirar algun dado? S/N: ";
-        cin>> sn;
-        if (sn=='s' || sn=='S'){
-            cout<<"¿Cuantos dados desea volver a tirar?: ";
-            cin>>cantDadosCambiados;
-            modificarDados(vDado1, cantDadosCambiados);
-            system("cls");
-        }
-        else{
-            if(sn=='n' || sn=='N'){
-                lanzamiento=0;
+             informacionRonda(n,ronda,puntos,lanzamiento);
+            if (primerIngreso==false){
+                tirarDados(vDado1);
+                primerIngreso=true;
             }
-        }
+            cout <<endl<<"Dados de "<<n<<":"<<endl;
+            mostrarDados(vDado1);
+            cout<<endl<<"¿Desde volver a tirar algun dado? S/N: ";
+            cin>> sn;
+            if (sn=='s' || sn=='S'){
+                cout<<"¿Cuantos dados desea volver a tirar?: ";
+                cin>>cantDadosCambiados;
+                modificarDados(vDado1, cantDadosCambiados);
+                system("cls");
+            }
+            else{
+                if(sn=='n' || sn=='N'){
+                    lanzamiento=0;
+                }
+            }
         }
         puntosLanzamiento=calculoDePuntaje(vDado1);
         if (puntosLanzamiento==50 && ronda==1){
@@ -280,6 +281,7 @@ void jugarSolo(char n[]){
         }
         puntos+=puntosLanzamiento;
         ronda++;
+        //mostrarDados(vDado1);
         cout<<"PUNTOS: "<<puntos<<endl;
         system("pause");
     }
