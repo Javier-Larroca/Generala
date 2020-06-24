@@ -5,6 +5,8 @@
 #include <cstdio>
 #include <ctime>
 #include <string.h>
+#include <windows.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -13,19 +15,21 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Spanish");
+    system("color 0b");
+    SetConsoleTitle("GENERALA - LARROCA - VAZQUES");
     char opc;
     char nombre[50];
 
-    cout << "Bienvenido a Generala"<< endl;
-    cout << "---------------------"<< endl;
+    cout << "             Bienvenido a Generala             "<< endl;
+    cout << "-----------------------------------------------"<< endl;
     cout <<endl;
 
     while(true){
     //cout << endl;
-    cout <<"1. Jugar"<< endl;
-    cout <<"2. Historial"<< endl;
-    cout <<"3. Reglas"<< endl;
-    cout <<"4. Salir"<< endl;
+    cout <<" 1. Jugar"<< endl;
+    cout <<" 2. Historial"<< endl;
+    cout <<" 3. Reglas"<< endl;
+    cout <<" 4. Salir"<< endl;
     cout <<endl;
     cout <<"Seleccione una opción: ";
     cin >> opc;
@@ -42,8 +46,8 @@ int main()
         return 0;
         break;
     default:system("cls");
-            cout << "Bienvenido a Generala"<< endl;
-            cout << "---------------------"<< endl;
+            cout << "             Bienvenido a Generala             "<< endl;
+            cout << "-----------------------------------------------"<< endl;
             cout <<"Opción ingresada no es válida"<< endl;
             cout<< endl;
         break;

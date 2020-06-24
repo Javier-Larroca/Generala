@@ -56,7 +56,7 @@
 	<ctime>
 	"funciones.h"
 
-1592966719 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\main.cpp
+1593013328 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\main.cpp
 	<iostream>
 	<stdlib.h>
 	<cstdlib>
@@ -64,11 +64,13 @@
 	<cstdio>
 	<ctime>
 	<string.h>
+	<windows.h>
+	<stdio.h>
 	"funciones.h"
 
-1592953162 c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\funciones.h
+1593022965 c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\funciones.h
 
-1592968661 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\funciones.cpp
+1593022350 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\funciones.cpp
 	<iostream>
 	<stdlib.h>
 	<cstdlib>

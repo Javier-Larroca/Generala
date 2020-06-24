@@ -17,7 +17,10 @@ void informacionRonda(char n[], int r, int p, int l);//Encabezado para cada lanz
 /**
 Funciones Agus
 */
-
+int contarCaracteres(char v[]);//Cuenta cuantos caracteres hay dentro de un vector de char.
+void centrarPuntaje(char texto1[],int num, char texto2[]);// Patente pendiente
+void centrarNombre(char texto[], char n[]); //Se ingresa un texto ("Jugador ", "Proximo turno:") y el nombre y nos lo imprime centrado
+void finDelJuegoUno(int puntos, int ronda, char n[]);//Una vez finalizado el juego imprime una pantalla de "fin de juego"
 void jugarSolo(char n[]);
 int contarDadosRepetidos(int v[], int numero); //Cuenta cuantos dados hay con el valor que se envia como parametro
 int copiarVector(int v[], int v2[]); //Copia el contenido de un vector de dados en otro vector (Ambos deben ser de 5 posiciones)
