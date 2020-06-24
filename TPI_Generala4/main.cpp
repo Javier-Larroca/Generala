@@ -16,7 +16,7 @@ int main()
 {
     setlocale(LC_ALL, "Spanish");
     system("color 0b");
-    SetConsoleTitle("GENERALA - LARROCA - VAZQUES");
+    SetConsoleTitle("GENERALA - LARROCA - VASQUEZ");
     char opc;
     char nombre[50];
 
