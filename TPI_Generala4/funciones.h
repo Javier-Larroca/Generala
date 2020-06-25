@@ -4,7 +4,7 @@
 /**
 Declaración de funciones
 */
-
+void subMenuHistorial(char n[], int puntos);//Menu de historial. Lo agregue por las dudas.
 void subMenuJugar(); //Muestra menú para jugador 1.
 void registrarJugador(char n[]); //Registra jugador que va a jugar
 void jugarDemostracion(char n[]); //Juega en modo de "demostracion", recibe el nombre del jugador y aca se juega todo el turno.Se inician vectores y  llama a las funciones tirarDados, mostrarDados y cambiarDados
@@ -13,6 +13,11 @@ void calcularRonda(char n[], int r, int p);////Recibe nombre del jugador, el num
 void ingresarDados();// Ingresar dados para DEMOSTRACIÓN.
 void cambiarDadosManualmente();// Cambia los dados para DEMOSTRACIÓN
 void informacionRonda(char n[], int r, int p, int l);//Encabezado para cada lanzamiento en cada ronda
+void juegoDeDos(char n[], char j[]);// Juego de 2
+void registraJugadores(char n[], char j[]);// Registra jugadores para juego de 2. Pense en unificarlo en una sola función para optimizar pero creo que sería lo mismo.
+void ganaPorGenerala();//Si gana por generala, o los dos sacan generala servida en el primer intento. Empatan
+void ganaPorPuntos();// Si gana por puntos, o los dos empatan. muestra empate
+void finDelJuegoDos(int puntos, int puntosJDos, int ronda, char n[], char j[], int g);// Fin del juego para modo 2, si alguno gano por Generala lo muestra. Lo mismo que RegistraJugadores, pense en unificarlo en 1 sola funcion.
 
 /**
 Funciones Agus

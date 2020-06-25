@@ -79,3 +79,26 @@
 	<string.h>
 	"funciones.h"
 
+1593088826 source:c:\users\evasquez\desktop\git\tpi_larroca_vasquez\tpi_generala4\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<string.h>
+	"funciones.h"
+
+1593088533 c:\users\evasquez\desktop\git\tpi_larroca_vasquez\tpi_generala4\funciones.h
+
+1593088671 source:c:\users\evasquez\desktop\git\tpi_larroca_vasquez\tpi_generala4\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<cstdio>
+	<ctime>
+	<string.h>
+	<windows.h>
+	<stdio.h>
+	"funciones.h"
+

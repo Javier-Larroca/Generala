@@ -17,9 +17,10 @@ int main()
     setlocale(LC_ALL, "Spanish");
     system("color 0b");
     SetConsoleTitle("GENERALA - LARROCA - VASQUEZ");
+    char nombreHistorial[50];
+    int puntosHistorial=0;
     char opc;
     char nombre[50];
-
     cout << "             Bienvenido a Generala             "<< endl;
     cout << "-----------------------------------------------"<< endl;
     cout <<endl;
@@ -38,7 +39,7 @@ int main()
     switch (opc){
     case '1':subMenuJugar();
         break;
-    case '2':cout<<"Sin desarrollar"<<endl;
+    case '2':subMenuHistorial(nombreHistorial, puntosHistorial);//cout<<"Sin desarrollar"<<endl;
         break;
     case '3':cout<<"Sin desarrollar"<<endl;
         break;

@@ -20,6 +20,7 @@ void subMenuJugar(){
     char mjuego;
     bool regresar;
     char nombre[50];
+    char nombreJugador2[50];
     regresar=false;
 
             cout << "                    A JUGAR                    "<< endl;
@@ -45,7 +46,14 @@ void subMenuJugar(){
                         jugarSolo(nombre);
                      }
                         break;
-                     case '2':cout<<"Sin desarrollar"<<endl;
+                     case '2':{ //cout<<"Sin desarrollar"<<endl;
+                       system("cls");
+                       registraJugadores(nombre, nombreJugador2);
+                       system("cls");
+                       cout<<"Empieza el juego!"<<endl;
+                       cout <<"Bienvenidos: "<<nombre<<endl<<nombreJugador2<<endl;
+                       juegoDeDos(nombre, nombreJugador2);
+                     }
                         break;
                      case '3':{
                         system("cls");
@@ -80,6 +88,17 @@ void registrarJugador(char n[]){
     cout<< endl;
     cout<<"Ingrese nombre de jugador para registrarse: ";
     cin>>n;
+}
+
+//Registra nombre de jugadores
+void registraJugadores(char n[], char j[]){
+     cout << "                    A JUGAR                    "<< endl;
+    cout << "-----------------------------------------------"<< endl;
+    cout<< endl;
+    cout<<"Ingrese nombre de jugador 1: ";
+    cin>>n;
+    cout<<"Ingres nombre de jugador 2: ";
+    cin>>j;
 }
 
 //Tira los dados ALEATORIAMENTE
@@ -182,27 +201,29 @@ int calculoDePuntaje(int v[]){
                 }
                 else{
                 /*
-                //Aca arme un for para buscar las combinaciones basicas. Lo explico punto a punto.
+                 //Aca arme un for para buscar las combinaciones basicas. Lo explico punto a punto.
                 for( int r=0; r<6; r++){ // Aca entrar en un FOR para buscar los numeros del 1 al 6.
                     valorRepetido=r+1; // Empezamos por el 1
-                    int vecesRepite=0; // Para cada numero, repite 1 sola vez
+                    int vecesRepite=0; // Para cada numero, las veces que repite siempre es 0.
+                    puntosAprox=0;  //Cada numero empieza con 0 puntos
                     for (int x=0; x<5; x++){ // Cada numero, recorre 1 vez el vector copia de los dados.
-                        if(vCopia[x]==valorRepetido){ //Compara la posición del vector con el numero.
-                            vecesRepite++; // Si repite aumenta en 1. Con aparecer 1 vez suma.
-                            puntosAprox=vecesRepite*valorRepetido; //Calculo de los puntos aproximados
-                        }
-                    }
-                    if (bMayor==false){ // Bandera para comparar con los numeros que le siguen
-                        puntoMayor=puntosAprox;
-                        bMayor=true;
-                    }
-                    else{
-                        if(puntosAprox>puntoMayor){
-                            puntoMayor=puntosAprox;
-                        }
-                    }
+                    if(vCopia[x]==valorRepetido){ //Compara la posición del vector con el numero.
+                    vecesRepite++; // Si repite aumenta en 1. Con aparecer 1 vez suma.
+                    puntosAprox=vecesRepite*valorRepetido; //Calculo de los puntos aproximados
                 }
-                puntos=puntoMayor;// Si no lo dejaba aca, me traia numero basura.
+                }if(puntosAprox!=0){ // Si no obtuvo puntos, no entra en este IF.
+                  if (bMayor==false){ //Bandera, si es el primero toma el puntaje de ese numero como el mayor.
+                puntoMayor=puntosAprox;
+                bMayor=true;
+                }else{
+                if(puntosAprox>puntoMayor){
+                    puntoMayor=puntosAprox;
+                }
+                }
+                }
+                }
+                puntos=puntoMayor;//Toma el puntaje mayor y lo guarda en puntos
+                }
                 **/
                     //uno=dos=tres=cuatro=cinco=seis=0;
                     uno =contarDadosRepetidos(v, 1)*1;
@@ -245,7 +266,7 @@ int calculoDePuntaje(int v[]){
     return puntos;
 }
 
-// Juega GENERALA para un solo jugador.
+/// Juega GENERALA para un solo jugador.
 void jugarSolo(char n[]){
     int vDado1[5], cantidadDados, puntos, x, cantDadosCambiados, lanzamiento, puntosLanzamiento;
     bool bandGeneral=true;
@@ -289,7 +310,7 @@ void jugarSolo(char n[]){
     }
     finDelJuegoUno(puntos, x, n);
 }
-// Cuenta cuantos caracteres hayun vector de char
+// Cuenta cuantos caracteres hay en un vector de char
 int contarCaracteres(char v[]){
     for (int x=0;x<50; x++){
         if (v[x]=='\0'){
@@ -384,6 +405,7 @@ void finDelJuegoUno(int puntos, int ronda, char n[]){
     cout<<"*******************************************************"<<endl;
     system("pause");
 }
+
 ///FUNCIONES SOLAMENTE UTILIZADAS PARA MODO "DEMOSTRACION"
 
 
@@ -483,3 +505,183 @@ cout<<"Jugador: "<<n<<" | "<<"Ronda n° "<<r<<" | "<<"Puntaje total: "<<p<< endl;
         }
 
 }
+
+
+//Gana Jugador
+void ganaJugadorPorPuntos(char n[],int ronda, int puntos){
+            cout<<"*******************************************************"<<endl;
+            cout<<"*                    FIN DEL JUEGO                    *"<<endl;
+            cout<<"*                     Rondas N°"<<ronda<<"                      *"<<endl;
+            //cout<<"*                   Ganador: "<<n<<"                *"<<endl;
+            centrarNombre("Ganador: ", n);
+            //cout<<"*                  Puntaje ganador: "<<puntos<<"                *"<<endl;
+            centrarPuntaje("Puntaje ganador: ",puntos," puntos. ");
+            cout<<"*******************************************************"<<endl;
+            system("pause");
+}
+
+//Empatan jugadores por puntos
+void empatanPorPuntos(int puntos, int puntosJDOS, int ronda, char n[], char j[]){
+        cout<<"*******************************************************"<<endl;
+        cout<<"*                    FIN DEL JUEGO                    *"<<endl;
+        cout<<"*                     Rondas N°"<<ronda<<"                      *"<<endl;
+        //cout<<"*                   Ganador: "<<n<<"                *"<<endl;
+        centrarNombre("Jugador 1:  ", n);
+        centrarNombre("Jugador 2: ", j);
+        cout<<"*                    ¡E M P A T E!                    *"<<endl;
+        //cout<<"*                  Puntaje ganador: "<<puntos<<"                *"<<endl;
+        centrarPuntaje("Puntos obtenidos para ambos jugadores: ",puntos," puntos. ");
+        cout<<"*******************************************************"<<endl;
+        system("pause");
+}
+
+//Gana jugador por Generala
+void ganaJugadorPorGenerala(char n[],int ronda, int puntos){
+            cout<<"*******************************************************"<<endl;
+            cout<<"*                    FIN DEL JUEGO                    *"<<endl;
+            cout<<"*                     Rondas N°"<<ronda<<"                      *"<<endl;
+            //cout<<"*                   Ganador: "<<n<<"                *"<<endl;
+            centrarNombre("Ganador: ", n);
+            //cout<<"*                  Puntaje ganador: "<<puntos<<"                *"<<endl;
+            centrarPuntaje("Puntaje ganador: ",puntos," puntos. ");
+            cout<<"*                   ¡GANO POR GENERALA!               *"<<endl;
+            cout<<"*******************************************************"<<endl;
+            system("pause");
+}
+
+//Empatan por generala
+void empatanPorGenerala(int puntos, int puntosJDOS, int ronda, char n[], char j[]){
+        cout<<"*******************************************************"<<endl;
+        cout<<"*                    FIN DEL JUEGO                    *"<<endl;
+        cout<<"*                     Rondas N°"<<ronda<<"                      *"<<endl;
+        //cout<<"*                   Ganador: "<<n<<"                *"<<endl;
+        centrarNombre("Jugador 1:  ", n);
+        centrarNombre("Jugador 2: ", j);
+        cout<<"*                      ¡EMPATE!                       *"<<endl;
+       // cout<<"*  GENERALA SERVIDA PARA AMBOS JUGADORES. ¡Increible! *"<<endl;
+        //cout<<"*                  Puntaje ganador: "<<puntos<<"                *"<<endl;
+        centrarPuntaje("Puntos obtenidos para ambos jugadores: ",puntos," puntos. ");//Falta desarrollar, por ahi en vez de los puntos ponemos directamente el mensaje de generala o ambos.
+        cout<<"*******************************************************"<<endl;
+        system("pause");
+}
+
+///Juego de 2 jugadores
+void juegoDeDos(char n[], char j[]){
+  int vDado1[5], cantidadDados, puntos, x, cantDadosCambiados, lanzamiento, puntosLanzamiento, puntosJugadorDos;
+  int bandGeneral=0; //Cambio el booleano por valores. Asi le doy chance al jugador 2 de sacar generala aunque sea imposible
+  char sn;
+  puntos=0;
+  puntosJugadorDos=0;
+    for(x=0; x<10 && bandGeneral==0;x++){//Empieza las rondas. Ambos jugadores comparten ronda. Si band general es 0, nadie saco generala y siguen las rondas.
+    bool band=true; //Primer ingreso de dados para jugador 1
+    calcularRonda(n, x+1, puntos);
+    system("cls");
+        for (lanzamiento=3; lanzamiento>0 && band==true; lanzamiento--){//Jugador 1
+        informacionRonda(n, x+1, puntos, lanzamiento);
+            if (lanzamiento==3){
+            tirarDados(vDado1);
+            }
+            cout<<endl<<"Dados de "<<n<<":"<<endl;
+            mostrarDados(vDado1);
+            cout<<endl<<"¿Desea volver a tirar algun dado? S/N: ";
+            cin>> sn;
+                if (sn == 's' || sn=='S'){
+                    cout<<"¿Cuantos dados desea volver a tirar?: ";
+                    cin>>cantDadosCambiados;
+                    modificarDados(vDado1, cantDadosCambiados);
+                    system("cls");
+                    }
+                    else{
+                        if (sn=='n' || sn=='N'){
+                            band=false;
+                            }
+                        }
+            puntosLanzamiento=calculoDePuntaje(vDado1);
+            if (puntosLanzamiento==50 && lanzamiento==3){
+            cout<<endl<<"¡¡¡ GENERALA EN PRIMER RONDA !!!"<<endl;
+            bandGeneral=1;
+            }
+            puntos+=puntosLanzamiento;
+            cout<<"PUNTOS DE LA RONDA: " <<puntosLanzamiento<<endl;
+            system("pause");
+        }
+      calcularRonda(j, x+1, puntosJugadorDos);
+      system("cls");
+      band=true;//Resetamos, primer ingreso de dados para jugador 2
+        for (lanzamiento=3; lanzamiento>0 && band==true; lanzamiento--){ //Jugador 2
+        informacionRonda(j, x+1, puntosJugadorDos, lanzamiento);
+            if (lanzamiento==3){
+            tirarDados(vDado1);
+            }
+            cout<<endl<<"Dados de "<<j<<":"<<endl;
+            mostrarDados(vDado1);
+            cout<<endl<<"¿Desea volver a tirar algun dado? S/N: ";
+            cin>> sn;
+                if (sn == 's' || sn=='S'){
+                    cout<<"¿Cuantos dados desea volver a tirar?: ";
+                    cin>>cantDadosCambiados;
+                    modificarDados(vDado1, cantDadosCambiados);
+                    system("cls");
+                    }
+                    else{
+                        if (sn=='n' || sn=='N'){
+                            band=false;
+                            }
+                        }
+            puntosLanzamiento=calculoDePuntaje(vDado1);
+            if (puntosLanzamiento==50 && lanzamiento==3){ //Lo que no se es si que si saca Generala debería terminar el turno directamente, sin opción de volver a tirar. A esperar que el J2 saque generala sino gana.
+            cout<<endl<<"¡¡¡ GENERALA EN PRIMER RONDA !!!"<<endl;
+                if (bandGeneral==1){  //Valido que el jugador 1 no haya sacado GENERALA
+                  bandGeneral=3;  // Si saco GENERALA, empatan
+                    }
+                    else {
+                        bandGeneral=2; // SI saco generala en su turno, al compartir ronda automaticamente gana el Jugador 2.
+                        }
+            }
+        puntosJugadorDos+=puntosLanzamiento;
+        cout<<"PUNTOS DE LA RONDA: "<<puntosLanzamiento<<endl;
+        system("pause");
+    }
+    }
+    finDelJuegoDos(puntos, puntosJugadorDos, x, n, j, bandGeneral);
+}
+
+// Fin del juego para el modo de 2 jugadores
+void finDelJuegoDos(int puntos, int puntosJDos, int ronda, char n[], char j[], int g){
+    system("cls");
+    if(g!=0){
+        switch (g){
+        case 1: ganaJugadorPorGenerala(n, ronda, puntos);
+        break;
+
+        case 2: ganaJugadorPorGenerala(j, ronda, puntosJDos);
+        break;
+
+        case 3: empatanPorGenerala(puntos, puntosJDos, ronda, n, j);
+        break;
+        }
+    }
+    else if (puntos==puntosJDos) {
+        empatanPorPuntos(puntos, puntosJDos, ronda, n, j);
+    }
+      else if(puntos>puntosJDos){
+            ganaJugadorPorPuntos(n, ronda, puntos);
+    }
+    ganaJugadorPorPuntos(j, ronda, puntosJDos);
+}
+
+void subMenuHistorial(char n[], int puntos){ // Falta programar.
+    if (puntos==0){
+        cout<<"No hay jugadores registrados. Empieze a jugar para armar un historial"<<endl;
+        system("pause");
+        system("cls");
+    }
+    else {
+    cout<<"Jugador con mas puntaje: "<<n<<endl;
+    cout<<"Puntos conseguidos: "<<puntos<<endl;
+    system("pause");
+    system("cls");
+    }
+}
+
+
