@@ -4,16 +4,19 @@
 /**
 Declaración de funciones
 */
-void subMenuHistorial(char n[], int puntos);//Menu de historial. Lo agregue por las dudas.
-void subMenuJugar(); //Muestra menú para jugador 1.
+void iniciliarVector(int v[]);//Iniciliza el vector de puntajes con 0
+int ultimaAsignacion(int v[]);//Se le envia el vector de puntajes y nos devuelve el indice del vector donde hacer la proxima asignacion
+void ordenarRanking(int puntosHistorial[], string nombresHistorial[]);// Ordena de mayor a menor el ranking de jugadores.
+void subMenuHistorial(int puntosHistorial[], string nombresHistorial[]); //Imprime en pantalla en forma decreciente los puntajes con sus respectivos jugadores.
+void cargarHistorial(int puntosHistorial[], string nombresHistorial[], int puntos, char nombre[]);//Recibe los datos de cada partido y los almacena en los vectores de historial
+void subMenuJugar(int puntosHistorial[], string nombresHistorial[]); //Muestra menú para jugador 1.
+void jugarSolo(char n[], int puntosHistorial[], string nombresHistorial[]);
+void juegoDeDos(char n[], char j[], int puntosHistorial[], string nombresHistorial[]);// Juego de 2
+void jugarDemostracion(char n[], int puntosHistorial[], string nombresHistorial[]); //Juega en modo de "demostracion", recibe el nombre del jugador y aca se juega todo el turno.Se inician vectores y  llama a las funciones tirarDados, mostrarDados y cambiarDados
+void iniciliarVector(int v[]); //Inicializa en 0 las posiciones de un vector de 50 posiciones.
 void registrarJugador(char n[]); //Registra jugador que va a jugar
-void jugarDemostracion(char n[]); //Juega en modo de "demostracion", recibe el nombre del jugador y aca se juega todo el turno.Se inician vectores y  llama a las funciones tirarDados, mostrarDados y cambiarDados
-//int calcularPuntos();// calcula los puntos que le corresponden
 void calcularRonda(char n[], int r, int p);////Recibe nombre del jugador, el numero de ronda, y el puntaje. Lo muestra siempre que se termina un turno
-void ingresarDados();// Ingresar dados para DEMOSTRACIÓN.
-void cambiarDadosManualmente();// Cambia los dados para DEMOSTRACIÓN
 void informacionRonda(char n[], int r, int p, int l);//Encabezado para cada lanzamiento en cada ronda
-void juegoDeDos(char n[], char j[]);// Juego de 2
 void registraJugadores(char n[], char j[]);// Registra jugadores para juego de 2. Pense en unificarlo en una sola función para optimizar pero creo que sería lo mismo.
 void ganaPorGenerala();//Si gana por generala, o los dos sacan generala servida en el primer intento. Empatan
 void ganaPorPuntos();// Si gana por puntos, o los dos empatan. muestra empate
@@ -26,7 +29,6 @@ int contarCaracteres(char v[]);//Cuenta cuantos caracteres hay dentro de un vect
 void centrarPuntaje(char texto1[],int num, char texto2[]);// Patente pendiente
 void centrarNombre(char texto[], char n[]); //Se ingresa un texto ("Jugador ", "Proximo turno:") y el nombre y nos lo imprime centrado
 void finDelJuegoUno(int puntos, int ronda, char n[]);//Una vez finalizado el juego imprime una pantalla de "fin de juego"
-void jugarSolo(char n[]);
 int contarDadosRepetidos(int v[], int numero); //Cuenta cuantos dados hay con el valor que se envia como parametro
 int copiarVector(int v[], int v2[]); //Copia el contenido de un vector de dados en otro vector (Ambos deben ser de 5 posiciones)
 void ordenarDados(int v[]);//Ordena el vector de "dados" de menor a mayor.
