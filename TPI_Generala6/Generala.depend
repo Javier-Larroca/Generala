@@ -1,0 +1,127 @@
+# depslib dependency file v1.0
+1592855971 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	"funciones.h"
+
+1592854647 c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala\funciones.h
+
+1592845646 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<cstdio>
+	<ctime>
+	"funciones.h"
+
+1592874850 source:c:\users\evasquez\desktop\git\tpi_larroca_vasquez\tpi_generala\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	"funciones.h"
+
+1592874850 c:\users\evasquez\desktop\git\tpi_larroca_vasquez\tpi_generala\funciones.h
+
+1592874850 source:c:\users\evasquez\desktop\git\tpi_larroca_vasquez\tpi_generala\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<cstdio>
+	<ctime>
+	"funciones.h"
+
+1592874850 source:c:\users\evasquez\desktop\git\generala\tpi_generala3\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<cstdio>
+	<ctime>
+	"funciones.h"
+
+1592929883 c:\users\evasquez\desktop\git\generala\tpi_generala3\funciones.h
+
+1592940849 source:c:\users\evasquez\desktop\git\generala\tpi_generala3\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	"funciones.h"
+
+1593116591 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<cstdio>
+	<ctime>
+	<string.h>
+	<windows.h>
+	<stdio.h>
+	"funciones.h"
+
+1593111108 c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\funciones.h
+
+1593114172 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala4\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<string.h>
+	"funciones.h"
+
+1593119585 source:c:\users\evasquez\desktop\git\tpi_larroca_vasquez\tpi_generala4\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<string.h>
+	"funciones.h"
+
+1593119585 c:\users\evasquez\desktop\git\tpi_larroca_vasquez\tpi_generala4\funciones.h
+
+1593119585 source:c:\users\evasquez\desktop\git\tpi_larroca_vasquez\tpi_generala4\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<cstdio>
+	<ctime>
+	<string.h>
+	<windows.h>
+	<stdio.h>
+	"funciones.h"
+
+1593200275 source:c:\users\evasquez\desktop\elmer - privado\utn\laboratorio de computación\tpi_generala6\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<string.h>
+	"funciones.h"
+
+1593199312 c:\users\evasquez\desktop\elmer - privado\utn\laboratorio de computación\tpi_generala6\funciones.h
+
+1593174495 source:c:\users\evasquez\desktop\elmer - privado\utn\laboratorio de computación\tpi_generala6\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<cstdio>
+	<ctime>
+	<string.h>
+	<windows.h>
+	<stdio.h>
+	"funciones.h"
+
