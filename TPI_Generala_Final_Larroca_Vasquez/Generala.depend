@@ -125,3 +125,26 @@
 	<stdio.h>
 	"funciones.h"
 
+1593203391 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala6\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<cstdio>
+	<ctime>
+	<string.h>
+	<windows.h>
+	<stdio.h>
+	"funciones.h"
+
+1593200774 c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala6\funciones.h
+
+1593205264 source:c:\users\javie\desktop\tpi\tpi_larroca_vasquez\tpi_generala6\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<string.h>
+	"funciones.h"
+

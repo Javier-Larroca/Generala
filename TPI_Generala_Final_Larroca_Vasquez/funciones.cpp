@@ -29,10 +29,10 @@ void subMenuJugar(int puntosHistorial[], string nombresHistorial[]){
                 cout << "                    A JUGAR                    "<< endl;
                 cout << "-----------------------------------------------"<< endl;
                 cout <<endl;
-                 cout <<" 1. Un jugador" << endl;
-                 cout <<" 2. Dos jugadores" << endl;
-                 cout <<" 3. Demostración" << endl;
-                 cout <<" 4. Volver a menú anterior"<< endl;
+                 cout <<"  1. Un jugador" << endl;
+                 cout <<"  2. Dos jugadores" << endl;
+                 cout <<"  3. Demostración" << endl;
+                 cout <<"  4. Volver a menú anterior"<< endl;
                  cout <<endl;
                  cout <<"Seleccione Modo de juego: ";
                  cin >> mjuego;
@@ -534,6 +534,7 @@ void jugarDemostracion(char n[], int puntosHistorial[], string nombresHistorial[
     cargarHistorial(puntosHistorial, nombresHistorial, puntos, n); //Envia los datos del jugador de mostracion para cargarlos en el historial de juego.
 
 }
+
 //Calcula ronda si se llega a lanzamiento=0
 void lanzamientoEnCero(int lanzamiento, bool band,int generalaDoble, char n[], int x, int puntos, int vDado[]){
      if (lanzamiento==0 && band==true){
@@ -740,7 +741,7 @@ void juegoDeDos(char n[], char j[], int puntosHistorial[], string nombresHistori
                         cantDadosCambiados=atoi(esNumero);
                     }
                     modificarDados(vDado1, cantDadosCambiados);
-                    if (lanzamiento==1){                                    //Si decide agotar todos los lanzamientos y valida que esta en el ultimo, calcula el puntaje del cambio de dados.
+                    if (lanzamiento==1){ //Si decide agotar todos los lanzamientos y valida que esta en el ultimo, calcula el puntaje del cambio de dados.
                     puntosLanzamiento=calculoDePuntaje(vDado1);
                     }
                     system("cls");
@@ -782,36 +783,39 @@ void juegoDeDos(char n[], char j[], int puntosHistorial[], string nombresHistori
             informacionRonda(j, x+1, puntosJugadorDos, lanzamiento);
             if (lanzamiento==2){
                  if (bandGeneral==1){
-                cout<<n<<" saco Generala servida, estas obligado a obtener la misma combinación para empatar."<<endl;
-                cout<<"Caso contrario, se pierde el juego"<<endl;
-                system("pause");
-                tirarDados(vDado1);
-                puntosLanzamiento=calculoDePuntaje(vDado1);
-                system("cls");
-                if(puntosLanzamiento==50){
-                mostrarDados(vDado1);
-                cout<<endl<<" ¡INCREIBLE! ¡GENERALA SERVIDA!"<<endl;
-                cout<<endl<<"EMPATAN"<<endl;
-                band=false;
-                bandGeneral=3;
-                }else{
-                mostrarDados(vDado1);
-                cout<<endl<<"Perdiste el juego"<<endl;
-                band=false;
+                    cout<<n<<" saco Generala servida, estas obligado a obtener la misma combinación para empatar."<<endl;
+                    cout<<"Caso contrario, se pierde el juego"<<endl;
+                    system("pause");
+                    tirarDados(vDado1);
+                    puntosLanzamiento=calculoDePuntaje(vDado1);
+                    system("cls");
+                    if(puntosLanzamiento==50){
+                        mostrarDados(vDado1);
+                        cout<<endl<<" ¡INCREIBLE! ¡GENERALA SERVIDA!"<<endl;
+                        cout<<endl<<"EMPATAN"<<endl;
+                        band=false;
+                        bandGeneral=3;
+                    }
+                    else{
+                        mostrarDados(vDado1);
+                        cout<<endl<<"Perdiste el juego"<<endl;
+                        band=false;
+                    }
                 }
-                }else{
-                tirarDados(vDado1);
-                puntosLanzamiento=calculoDePuntaje(vDado1);
-                system("cls");
-                if(puntosLanzamiento==50){
-                cout<<endl<<"¡¡¡ GENERALA EN EL PRIMER LANZAMIENTO!!!"<<endl;
-                cout<<endl<<"¡FELICITACIONES! GANASTE EL PARTIDO"<<endl;
-                mostrarDados(vDado1);
-                bandGeneral=2;
-                band=false;
-                }else{
-                informacionRonda(j, x+1, puntos,lanzamiento);
-                }
+                else{
+                    tirarDados(vDado1);
+                    puntosLanzamiento=calculoDePuntaje(vDado1);
+                    system("cls");
+                    if(puntosLanzamiento==50){
+                        cout<<endl<<"¡¡¡ GENERALA EN EL PRIMER LANZAMIENTO!!!"<<endl;
+                        cout<<endl<<"¡FELICITACIONES! GANASTE EL PARTIDO"<<endl;
+                        mostrarDados(vDado1);
+                        bandGeneral=2;
+                        band=false;
+                    }else
+                    {
+                        informacionRonda(j, x+1, puntos,lanzamiento);
+                    }
                 }
 
             }
@@ -822,43 +826,44 @@ void juegoDeDos(char n[], char j[], int puntosHistorial[], string nombresHistori
                 cin>> sn;
             }
             while(sn!='s'&&sn!='S'&&sn!='n'&&sn!='N'&&bandGeneral==0){ //Valida que entre si ingresan un caracter diferenteo y si no se hizo generala todavía.
-            cout<<"Opción ingresada no es válida. Ingrese 'S' o 'N': ";
-            cin>>sn;
+                cout<<"Opción ingresada no es válida. Ingrese 'S' o 'N': ";
+                cin>>sn;
             }
             if (sn == 's' || sn=='S'){
                     cout<<"¿Cuantos dados desea volver a tirar?: ";
                     cin>>esNumero;
                     cantDadosCambiados=atoi(esNumero);
                     while(cantDadosCambiados==0||cantDadosCambiados=='0'){
-                    cout<<"Cantidad invalída. Ingrese numeros del 1 al 5: ";
-                    cin>>esNumero;
-                    cantDadosCambiados=atoi(esNumero);
+                        cout<<"Cantidad invalída. Ingrese numeros del 1 al 5: ";
+                        cin>>esNumero;
+                        cantDadosCambiados=atoi(esNumero);
                     }
                     modificarDados(vDado1, cantDadosCambiados);
                     if (lanzamiento==1){
-                        puntos=calculoDePuntaje(vDado1);
+                        puntosLanzamiento=calculoDePuntaje(vDado1);
                     }
                     system("cls");
-                    }
-                    else{
-                        if (sn=='n' || sn=='N'){
-                            lanzamiento=-1;
-                            band=false;
-                            puntosLanzamiento=calculoDePuntaje(vDado1);
-                            }
-                        }
-                    if (puntosLanzamiento==50 && bandGeneral==0){ //Lo que no se es si que si saca Generala debería terminar el turno directamente, sin opción de volver a tirar. A esperar que el J2 saque generala sino gana.
-                        if (bandGeneralDobleDos==0){
+            }
+            else{
+                if (sn=='n' || sn=='N'){
+                        lanzamiento=-1;
+                        band=false;
+                        puntosLanzamiento=calculoDePuntaje(vDado1);
+                }
+            }
+            if (puntosLanzamiento==50 && bandGeneral==0){ //Lo que no se es si que si saca Generala debería terminar el turno directamente, sin opción de volver a tirar. A esperar que el J2 saque generala sino gana.
+                if (bandGeneralDobleDos==0){
                         cout<<endl<<"¡¡¡ EXCELENTE !!!"<<endl;
                         bandGeneralDobleDos=1;
                         band=false;
-                        }else {
-                            bandGeneralDobleDos=2;
-                            cout<<endl<<"¡¡¡ GENERALA DOBLE !!!"<<endl;
-                            cout<<endl<<"!FELICITACIONES! GANASTE EL PARTIDO "<<endl;
-                            bandGeneral=2;
-                            band=false;
-                        }
+                }
+                else{
+                    bandGeneralDobleDos=2;
+                    cout<<endl<<"¡¡¡ GENERALA DOBLE !!!"<<endl;
+                    cout<<endl<<"!FELICITACIONES! GANASTE EL PARTIDO "<<endl;
+                    bandGeneral=2;
+                    band=false;
+                }
             }
         }
         puntosJugadorDos+=puntosLanzamiento;
@@ -964,6 +969,7 @@ void subMenuHistorial(int puntosHistorial[], string nombresHistorial[]){ // Se p
             centrarNombre("Jugador: ", n);
             centrarPuntaje("Puntaje: ",puntosHistorial[x]," puntos.");
         }
+        cout<<endl;
         cout<<"*******************************************************"<<endl;
         system("pause");
     }
@@ -976,71 +982,80 @@ void subMenuHistorial(int puntosHistorial[], string nombresHistorial[]){ // Se p
 
 void menuReglas(){
 system("cls");
-cout<<"         ¡Bienvenido a Generala!         "<<endl;
-cout<<"         Reglas generales                "<<endl;
-cout<<"1. El objetivo del juego es sacar Generala Servida, Generala doble u la mayor obtener la puntuación a lo largo de 10 rondas"<<endl;
-cout<<"2. Cada ronda esta compuesta por tres lanzamientos, cuando iniciamos una ronda se toma en cuenta que se realizo el primer lanzamiento"<<endl;
-cout<<"3. Un lanzamiento consiste en tirar los cinco dados y evaluar sus valores para determinar el puntaje. Si se considera oportuno se puede volver a tirar todos o algunos de los dados en dos oportunidades más"<<endl;
-cout<<"4. El sistema siempre preguntará al usuario si quiere realizar otro lanzamiento y cuales son los dados que quiere elegir para volver a tirar"<<endl;
-cout<<"5. Para calcular el sistema de puntaje, ir a 'Combinaciones ganadoras'"<<endl;
+cout<<"                              ¡Bienvenido a Generala!                             "<<endl<<endl;
+cout<<"                                 Reglas generales            "<<endl<<endl;
+cout<<" 1. El objetivo del juego es sacar Generala Servida, Generala doble u la mayor obtener la "<<endl;
+cout<<"puntuación a lo largo de 10 rondas"<<endl<<endl;
+cout<<" 2. Cada ronda esta compuesta por tres lanzamientos, cuando iniciamos una ronda se toma en cuenta"<<endl;
+cout<<"que se realizo el primer lanzamiento"<<endl<<endl;
+cout<<" 3. Un lanzamiento consiste en tirar los cinco dados y evaluar sus valores para determinar el puntaje. "<<endl;
+cout<<"Si se considera oportuno se puede volver a tirar todos o algunos de los dados en dos oportunidades más"<<endl<<endl;
+cout<<" 4. El sistema siempre preguntará al usuario si quiere realizar otro lanzamiento y cuales son los dados "<<endl;
+cout<<"que quiere elegir para volver a tirar"<<endl<<endl;
+cout<<" 5. Para calcular el sistema de puntaje, ir a 'Combinaciones ganadoras'"<<endl<<endl;
 system("pause");
 }
 
 void menuCombinaciones(){
 system("cls");
-cout<<"                                 ¡Bienvenido a Generala!                          "<<endl;
-cout<<"                          Combinaciones para el calculo de puntaje                "<<endl;
+cout<<"                              ¡Bienvenido a Generala!                             "<<endl<<endl;
+cout<<"                       Combinaciones para el calculo de puntaje                "<<endl;
 cout<<endl;
-cout<<"1. GENERALA: Se obtienen 5 dados con el mismo valor. En caso de sacar generala en el primer lanzamiento de cualquier ronda, se gana el partido automaticamente. PUNTAJE: 50 puntos"<<endl;
-cout<<"Nota: Si la combinación de dados se diera en el segundo o ultimo lanzamiento, se debe esperar a lograr la misma combinación en otra ronda mas para lograr Generala doble y ganar el partido"<<endl;
+cout<<" 1. GENERALA: Se obtienen 5 dados con el mismo valor. En caso de sacar generala en el "<<endl;
+cout<<"primer lanzamiento de cualquier ronda, se gana el partido automaticamente. PUNTAJE: 50 puntos"<<endl;
+cout<<" Nota: Si la combinación de dados se diera en el segundo o ultimo lanzamiento, se debe esperar"<<endl;
+cout<<"a lograr la misma combinación en otra ronda mas para lograr Generala doble y ganar el partido"<<endl;
 cout<<endl;
-cout<<"2. PÓKER: Se obtienen 4 dados con el mismo valor. PUNTAJE: 40 puntos."<<endl;
+cout<<" 2. PÓKER: Se obtienen 4 dados con el mismo valor. PUNTAJE: 40 puntos."<<endl;
 cout<<endl;
-cout<<"3. FULL: Se obtienen 3 dados con el mismo valor y 2 dados con el mismo valor. PUNTAJE: 30."<<endl;
+cout<<" 3. FULL: Se obtienen 3 dados con el mismo valor y 2 dados con el mismo valor. PUNTAJE: 30 puntos."<<endl;
 cout<<endl;
-cout<<"4. ESCALERA: Se obtienen 5 dados enforma creciente. Puede empezar en el numero 1 o 2. PUNTAJE: 25 puntos."<<endl;
+cout<<" 4. ESCALERA: Se obtienen 5 dados enforma creciente. Puede empezar en el numero 1 o 2. PUNTAJE: 25 puntos."<<endl;
 cout<<endl;
-cout<<"5. JUEGO DE NUMEROS: En caso de no obtener ninguna combinación antes mencionada, se tomará el puntaje del resultado de multiplicar la cantidad de dados con valor repetido por ese mismo valor"<<endl;
-cout<<"Nota: Siempre que se de este resultado, se tomará el valor mas alto disponible. Si obtuve 3 dados con valor 1 y dos dados con valor 5 y 6 respectivamente, el juego tomará como valor para el calculo de punto el número 6"<<endl;
+cout<<" 5. JUEGO DE NUMEROS: En caso de no obtener ninguna combinación antes mencionada, se tomará el "<<endl;
+cout<<"puntaje del resultado de multiplicar la cantidad de dados con valor repetido por ese mismo valor."<<endl;
+cout<<" Nota: Siempre que se de este resultado, se tomará el valor mas alto disponible. Si obtuve 3 dados "<<endl;
+cout<<"con valor 1 y dos dados con valor 5 y 6 respectivamente, el juego tomará como valor para el "<<endl;
+cout<<"calculo de punto el número 6"<<endl<<endl;
 system("pause");
 }
 
 //Submenu reglas
 
 void subMenuReglas(){
-char op;
-bool regresar=false;
-system("cls");
+    char op;
+    bool regresar=false;
+    system("cls");
 
-while (!regresar){
-cout<<"                              ¡Bienvenido a Generala!                             "<<endl;
-cout<<"En esta sección te explicamos las reglas del juego y las combinaciones ganadoras: "<<endl;
-cout<<endl;
-cout<<"1. Reglas del juego"<<endl;
-cout<<"2. Combinaciones ganadoras"<<endl;
-cout<<"3. Volver a menú principal"<<endl;
-cout<<endl;
-cout<<"Seleccione una opción: ";
-cin>>op;
-cout<<endl;
-    switch(op){
-    case '1': menuReglas();
-              system("cls");
-    break;
+    while (!regresar){
+        cout<<"                              ¡Bienvenido a Generala!                             "<<endl<<endl;
+        cout<<"En esta sección te explicamos las reglas del juego y las combinaciones ganadoras: "<<endl;
+        cout<<endl;
+        cout<<"  1. Reglas del juego"<<endl;
+        cout<<"  2. Combinaciones ganadoras"<<endl;
+        cout<<"  3. Volver a menú principal"<<endl;
+        cout<<endl;
+        cout<<"Seleccione una opción: ";
+        cin>>op;
+        cout<<endl;
+            switch(op){
+            case '1': menuReglas();
+                      system("cls");
+            break;
 
-    case '2': menuCombinaciones();
-              system("cls");
-    break;
+            case '2': menuCombinaciones();
+                      system("cls");
+            break;
 
-    case '3': regresar=true;
-    break;
+            case '3': regresar=true;
+            break;
 
-    default: cout<<"Opción ingresada no es válida, seleccione las indicadas"<<endl;
-             system("pause");
-             system("cls");
-    break;
-    }
- }
+            default: cout<<"Opción ingresada no es válida, seleccione las indicadas"<<endl;
+                     system("pause");
+                     system("cls");
+            break;
+            }
+     }
 }
 
 

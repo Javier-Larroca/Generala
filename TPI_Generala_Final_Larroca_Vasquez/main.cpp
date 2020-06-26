@@ -43,10 +43,10 @@ int main()
     cout << "             Bienvenido a Generala             "<< endl;
     cout << "-----------------------------------------------"<< endl;
     cout <<endl;
-    cout <<" 1. Jugar"<< endl;
-    cout <<" 2. Historial"<< endl;
-    cout <<" 3. Reglas"<< endl;
-    cout <<" 4. Salir"<< endl;
+    cout <<"  1. Jugar"<< endl;
+    cout <<"  2. Historial"<< endl;
+    cout <<"  3. Reglas"<< endl;
+    cout <<"  4. Salir"<< endl;
     cout <<endl;
     cout <<"Seleccione una opción: ";
     cin >> opc;
