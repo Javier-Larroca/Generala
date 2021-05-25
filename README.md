@@ -1,5 +1,5 @@
 # primerPortfolio
-Repositorio creado para proyecto "Generala", para la amteria de Laboratorio de Computacion I - UTN - FRGP
+Repositorio creado para proyecto "Generala", para la materia de Laboratorio de Computacion I - UTN - FRGP
 
 <img src="readme/1.PNG" alt="Captura 1"/>
 <img src="readme/2.PNG" alt="Captura 2"/>
